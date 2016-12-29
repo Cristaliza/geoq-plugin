@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+      id="com.sipl.geoLocationsdkplugin"
+      version="0.0.1">
+    <name>Geolocation SDK</name>
+    <description>Geolocation Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>geolocation,location</keywords>
+
+    <js-module src="www/geoLocationSdkPlugin.js" name="geoLocationSdkPlugin">
+        <clobbers target="window.geoLocationSdkPlugin" />
+    </js-module>
+    
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="geoLocationSdkPlugin" >
+                <param name="android-package" value="com.sipl.geoLocationsdkplugin.geoLocationSdkPlugin"/>
+
+                                                      
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/geoLocationSdkPlugin.java" target-dir="src/com/sipl/geoLocationsdkplugin" />
+    </platform>
+   
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="geoLocationSdkPlugin">
+                <param name="ios-package" value="geoLocationSdkPlugin" onload="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/geoLocationSdkPlugin.h" />
+        <source-file src="src/ios/geoLocationSdkPlugin.m" />
+
+
+        <framework src="Accelerate.framework" />
+        <framework src="AudioToolbox.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="CFNetwork.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="CoreLocation.framework" weak="true" />
+        <framework src="CoreMedia.framework" weak="true" />
+        <framework src="CoreVideo.framework"/>
+        <framework src="MessageUI.framework" />
+        <framework src="OpenGLES.framework" />
+        <framework src="MobileCoreServices.framework" />
+        <framework src="Security.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="QuartzCore.framework"/>
+        <framework src="UIKit.framework"/>
+        <framework src="libc++.dylib" />
+        <framework src="libPayPalMobile.a" />
+
+    </platform>
+
+</plugin>
